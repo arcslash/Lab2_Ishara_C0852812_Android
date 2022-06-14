@@ -3,11 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/DELL/Desktop/Lab2_Isharae_C0852812_Android/app/src/main/res/layout/activity_add_product.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/DELL/Desktop/Lab2_Isharae_C0852812_Android/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
+        <entry key="..\:/Users/DELL/Desktop/Lab2_Isharae_C0852812_Android/app/src/main/res/layout/activity_view_products.xml" value="0.15217391304347827" />
+        <entry key="..\:/Users/DELL/Desktop/Lab2_Isharae_C0852812_Android/app/src/main/res/layout/product_list_row.xml" value="0.15217391304347827" />
         <entry key="app/src/main/res/layout/activity_add_product.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2950286865234375" />
         <entry key="app/src/main/res/layout/activity_view_products.xml" value="0.31560923258463547" />
         <entry key="app/src/main/res/layout/product_list_detailview.xml" value="0.4431395027789946" />
         <entry key="app/src/main/res/layout/product_list_layout.xml" value="0.1215311004784689" />
+        <entry key="app/src/main/res/layout/product_list_row.xml" value="0.1" />
       </map>
     </option>
   </component>

@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void connectView(){
-        btnAddNewRecord = findViewById(R.id.btnView);
+        btnAddNewRecord = findViewById(R.id.btnAdd);
         btnSearch = findViewById(R.id.btnView);
         tvProdTitle = findViewById(R.id.tv_prod_name);
         tvProdDescription = findViewById(R.id.tv_prod_description);

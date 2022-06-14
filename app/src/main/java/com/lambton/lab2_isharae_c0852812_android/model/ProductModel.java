@@ -5,6 +5,13 @@ public class ProductModel {
     String productName, productDescription;
     Double productPrice;
 
+    public ProductModel(Integer productId, String productName, String productDescription, Double productPrice) {
+        this.productId = productId;
+        this.productName = productName;
+        this.productDescription = productDescription;
+        this.productPrice = productPrice;
+    }
+
     public Integer getProductId() {
         return productId;
     }

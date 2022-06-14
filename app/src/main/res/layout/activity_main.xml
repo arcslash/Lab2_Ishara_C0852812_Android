@@ -24,6 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Product 1"
+                android:textColor="@color/black"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <TextView
@@ -31,6 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Product Description"
+                android:textColor="@color/black"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         </LinearLayout>
         <LinearLayout
@@ -43,9 +45,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Product Price"
+                android:textColor="@color/black"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         </LinearLayout>
     </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -53,30 +57,23 @@
         android:layout_below="@+id/prod_one_lay"
         android:layout_gravity="center"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <LinearLayout
+        <Button
+            android:id="@+id/btnView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/prod_one_lay"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/btnView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:background="@color/blue"
-                android:padding="@dimen/_5sdp"
-                android:text="@string/view_more"
-                android:textColor="#fff" />
-        </LinearLayout>
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@color/blue"
+            android:padding="@dimen/_5sdp"
+            android:text="@string/view_more"
+            android:textColor="#fff" />
 
         <Button
             android:id="@+id/btnAdd"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_5sdp"
             android:background="@color/blue"
@@ -84,5 +81,4 @@
             android:text="@string/add_new"
             android:textColor="#fff" />
     </LinearLayout>
-
 </RelativeLayout>
