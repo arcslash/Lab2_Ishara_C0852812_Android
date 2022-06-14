@@ -70,6 +70,7 @@ public class ViewProductsActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         String searchText = etSearchProducts.getText().toString();
+        this.products = new ArrayList<>();
         Cursor cursor = null;
         if(v.getId() == R.id.btn_search_desc){
             cursor = productDatabaseAdapter.findProductByDescription(searchText);
@@ -88,12 +89,13 @@ public class ViewProductsActivity extends AppCompatActivity implements View.OnCl
                 // Do something Here with values
 //                Log.d("DB_DEBUG_SEARCH", "col1: " + column1 + ", col2:" +
 //                        column2 + ", col3:" + column3 + ", col4:" + column4);
-                this.products.add(new ProductModel(Integer.parseInt(column1), column2, column3, Double.parseDouble(column4)));
-
+                ProductModel data = new ProductModel(Integer.parseInt(column1), column2,column3,Double.parseDouble(column4));
+                products.add(data);
             } while(cursor.moveToNext());
         }
-        //productDatabaseAdapter.notifyDataSetChanged();
+
         Log.d("DB", products.toString());
+        productAdapter.filterList(products);
         productAdapter.notifyDataSetChanged();
         cursor.close();
 
