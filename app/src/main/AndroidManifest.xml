@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lab2_Isharae_C0852812_Android" >
         <activity
+            android:name=".controller.ViewProductsActivity"
+            android:exported="false" />
+        <activity
             android:name=".controller.AddProductActivity"
             android:exported="false" />
         <activity

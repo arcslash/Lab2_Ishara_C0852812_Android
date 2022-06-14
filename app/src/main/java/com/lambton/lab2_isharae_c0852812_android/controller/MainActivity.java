@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(v.getId() == R.id.btnView){
             Intent addProductIntent = new Intent(this, AddProductActivity.class);
             startActivity(addProductIntent);
-        }else if(v.getId() == R.id.btnSearch){
+        }else if(v.getId() == R.id.btnView){
             Toast.makeText(this, "Search for something", Toast.LENGTH_SHORT).show();
         }
     }
