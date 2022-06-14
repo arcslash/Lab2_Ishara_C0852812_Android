@@ -24,6 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Product 1"
+                android:textStyle="bold"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <TextView
@@ -31,58 +32,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Product Description"
+                android:textColor="@color/grey"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         </LinearLayout>
+
         <LinearLayout
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="@dimen/_50sdp"
             android:orientation="vertical">
             <TextView
                 android:id="@+id/prod_price"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Product Price"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/prod_one_lay"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/prod_one_lay"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/btnView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:background="@color/blue"
-                android:padding="@dimen/_5sdp"
-                android:text="@string/view_more"
-                android:textColor="#fff" />
+                android:text="Product Price"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                android:textColor="@color/green"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            <Button
+                android:layout_gravity="center"
+                android:id="@+id/edit"
+                android:layout_margin="@dimen/_3sdp"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:background="@drawable/edit_icon"
+                />
         </LinearLayout>
-
-        <Button
-            android:id="@+id/btnView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_5sdp"
-            android:background="@color/blue"
-            android:padding="@dimen/_5sdp"
-            android:text="@string/add_new"
-            android:textColor="#fff" />
     </LinearLayout>
-
 </RelativeLayout>

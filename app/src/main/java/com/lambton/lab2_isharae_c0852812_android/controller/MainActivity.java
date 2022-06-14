@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,11 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         connectView();
         productdbAdapter = new ProductDatabaseAdapter(this);
-        productdbAdapter.addProduct("Apple","Apple bulk",15.00);
-        productdbAdapter.addProduct("Apple1","Apple bulk",15.00);
-        productdbAdapter.addProduct("Apple2","Apple bulk",15.00);
-        productdbAdapter.addProduct("Apple3","Apple bulk",15.00);
-        productdbAdapter.addProduct("Apple4","Apple bulk",15.00);
+
         Cursor c = productdbAdapter.getFirstProduct();
 
         if (c.moveToFirst()){
@@ -50,16 +45,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void connectView(){
-        btnAddNewRecord = findViewById(R.id.btnAddNew);
-        btnSearch = findViewById(R.id.btnSearch);
+        btnAddNewRecord = findViewById(R.id.btnView);
+        btnSearch = findViewById(R.id.btnView);
         btnSearch.setOnClickListener(this);
         btnAddNewRecord.setOnClickListener(this);
+    }
+    private void addStaticData(){
+        productdbAdapter.addProduct("Book","Story Book",15.00);
+        productdbAdapter.addProduct("Pen","Apple bulk",15.00);
+        productdbAdapter.addProduct("Pencil","Apple bulk",15.00);
+        productdbAdapter.addProduct("Art","Apple bulk",10.00);
+        productdbAdapter.addProduct("Bag","Apple bulk",15.00);
+        productdbAdapter.addProduct("Bed","Apple bulk",15.00);
+        productdbAdapter.addProduct("Pillow","Apple bulk",15.00);
+        productdbAdapter.addProduct("Carpet","Apple bulk",15.00);
+        productdbAdapter.addProduct("Door","Apple bulk",15.00);
+        productdbAdapter.addProduct("Window","Apple bulk",15.00);
     }
 
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.btnAddNew){
+        if(v.getId() == R.id.btnView){
             Intent addProductIntent = new Intent(this, AddProductActivity.class);
             startActivity(addProductIntent);
         }else if(v.getId() == R.id.btnSearch){
