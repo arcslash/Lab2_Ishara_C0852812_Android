@@ -2,4 +2,7 @@
     <string name="app_name">Lab2_Isharae_C0852812_Android</string>
     <string name="view_more">View More</string>
     <string name="add_new">Add New</string>
+    <string name="add_product">Add Product</string>
+    <string name="search_products">Search Products</string>
+    <string name="product_price">Product Price</string>
 </resources>

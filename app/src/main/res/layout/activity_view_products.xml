@@ -24,16 +24,24 @@
                 android:id="@+id/et_search_product"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Search Products" />
+                android:hint="@string/search_products" />
 
             <Button
                 android:id="@+id/btn_search_desc"
                 android:layout_width="match_parent"
+                android:textStyle="bold"
+                android:background="@color/blue"
+                android:textColor="#fff"
+                android:layout_margin="@dimen/_5sdp"
                 android:layout_height="match_parent"
                 android:text=" Search By Description" />
 
             <Button
                 android:id="@+id/btn_search_name"
+                android:textStyle="bold"
+                android:background="@color/blue"
+                android:textColor="#fff"
+                android:layout_margin="@dimen/_5sdp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text=" Search By Name" />

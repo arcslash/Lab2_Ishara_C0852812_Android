@@ -45,8 +45,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_5sdp"
             android:padding="@dimen/_5sdp"
+            android:textStyle="bold"
             android:background="@color/blue"
-            android:text="Add Product"
+            android:text="@string/add_product"
             android:textColor="@color/white"
             android:layout_gravity="center"/>
     </LinearLayout>

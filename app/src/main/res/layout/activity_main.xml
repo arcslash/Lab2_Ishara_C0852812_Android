@@ -67,6 +67,7 @@
             android:layout_margin="@dimen/_5sdp"
             android:background="@color/blue"
             android:padding="@dimen/_5sdp"
+            android:textStyle="bold"
             android:text="@string/view_more"
             android:textColor="#fff" />
 
@@ -79,6 +80,7 @@
             android:background="@color/blue"
             android:padding="@dimen/_5sdp"
             android:text="@string/add_new"
+            android:textStyle="bold"
             android:textColor="#fff" />
     </LinearLayout>
 </RelativeLayout>
