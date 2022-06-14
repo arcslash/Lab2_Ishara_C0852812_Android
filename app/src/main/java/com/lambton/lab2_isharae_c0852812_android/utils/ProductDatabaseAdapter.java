@@ -82,6 +82,26 @@ public class ProductDatabaseAdapter extends SQLiteOpenHelper {
     }
 
     /**
+     * Query database - select all the product name
+     * @return cursor
+     * */
+    public Cursor findProductByName(String productName) {
+        // we need a readable instance of database
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        return sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE PRODUCT_NAME LIKE'%" + productName + "%'", null);
+    }
+
+
+    /**
+     * Query database - select all the product description
+     * @return cursor
+     * */
+    public Cursor findProductByDescription(String productDescription) {
+        // we need a readable instance of database
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        return sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE PRODUCT_DESCRIPTION LIKE '%" + productDescription + "%'", null);
+    }
+    /**
      * Update product in database
      * @param productId
      * @param productName

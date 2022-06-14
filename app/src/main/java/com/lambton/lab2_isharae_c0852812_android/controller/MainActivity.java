@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.lambton.lab2_isharae_c0852812_android.R;
 import com.lambton.lab2_isharae_c0852812_android.utils.ProductDatabaseAdapter;
@@ -16,6 +16,7 @@ import com.lambton.lab2_isharae_c0852812_android.utils.ProductDatabaseAdapter;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button btnAddNewRecord, btnSearch;
+    TextView tvProdTitle, tvProdDescription, tvProdPrice;
     ProductDatabaseAdapter productdbAdapter;
 
    
@@ -25,7 +26,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         connectView();
         productdbAdapter = new ProductDatabaseAdapter(this);
+        addStaticData();
 
+        // get 1st record and display it
         Cursor c = productdbAdapter.getFirstProduct();
 
         if (c.moveToFirst()){
@@ -38,6 +41,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // Do something Here with values
                 Log.d("DB_DEBUG", "col1: " + column1 + ", col2:" +
                         column2 + ", col3:" + column3 + ", col4:" + column4);
+                tvProdTitle.setText(column2);
+                tvProdDescription.setText(column3);
+                tvProdPrice.setText(column4);
             } while(c.moveToNext());
         }
         c.close();
@@ -47,6 +53,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void connectView(){
         btnAddNewRecord = findViewById(R.id.btnView);
         btnSearch = findViewById(R.id.btnView);
+        tvProdTitle = findViewById(R.id.tv_prod_name);
+        tvProdDescription = findViewById(R.id.tv_prod_description);
+        tvProdPrice = findViewById(R.id.tv_prod_price);
         btnSearch.setOnClickListener(this);
         btnAddNewRecord.setOnClickListener(this);
     }
@@ -66,11 +75,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.btnView){
+        if(v.getId() == R.id.btnAdd){
             Intent addProductIntent = new Intent(this, AddProductActivity.class);
             startActivity(addProductIntent);
         }else if(v.getId() == R.id.btnView){
-            Toast.makeText(this, "Search for something", Toast.LENGTH_SHORT).show();
+            Intent viewProductsIntent = new Intent(this, ViewProductsActivity.class);
+            startActivity(viewProductsIntent);
         }
     }
 }
