@@ -2,6 +2,7 @@ package com.lambton.lab2_isharae_c0852812_android.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lambton.lab2_isharae_c0852812_android.R;
-import com.lambton.lab2_isharae_c0852812_android.controller.AddProductActivity;
 import com.lambton.lab2_isharae_c0852812_android.controller.EditProductActivity;
-import com.lambton.lab2_isharae_c0852812_android.controller.ViewProductsActivity;
 import com.lambton.lab2_isharae_c0852812_android.model.ProductModel;
 
 import java.util.ArrayList;
@@ -22,13 +21,13 @@ import java.util.ArrayList;
 public class ProductRecycleviewAdapter extends RecyclerView.Adapter<ProductRecycleviewAdapter.RecyclerViewHolder> {
 
     // creating a variable for our array list and context.
-    private ArrayList<ProductModel> courseDataArrayList;
+    private ArrayList<ProductModel> productDataArrayList;
     private Context mcontext;
     ProductDatabaseAdapter dbAdapter;
 
     // creating a constructor class.
     public ProductRecycleviewAdapter(ArrayList<ProductModel> recyclerDataArrayList, Context mcontext) {
-        this.courseDataArrayList = recyclerDataArrayList;
+        this.productDataArrayList = recyclerDataArrayList;
         this.mcontext = mcontext;
     }
 
@@ -43,7 +42,7 @@ public class ProductRecycleviewAdapter extends RecyclerView.Adapter<ProductRecyc
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
         // Set the data to textview from our modal class.
-        ProductModel recyclerData = courseDataArrayList.get(position);
+        ProductModel recyclerData = productDataArrayList.get(position);
         dbAdapter=new ProductDatabaseAdapter(mcontext);
         holder.prod_name.setText(recyclerData.getProductName());
         holder.prod_desc.setText(recyclerData.getProductDescription());
@@ -65,8 +64,26 @@ public class ProductRecycleviewAdapter extends RecyclerView.Adapter<ProductRecyc
             @Override
             public void onClick(View view) {
                 dbAdapter.deleteProduct(recyclerData.getProductId());
-                //notifyDataSetChanged();
-                mcontext.startActivity(new Intent(mcontext, ViewProductsActivity.class));
+                notifyDataSetChanged();
+                productDataArrayList = new ArrayList<>();
+                // mcontext.startActivity(new Intent(mcontext, ViewProductsActivity.class));
+                Cursor c = dbAdapter.getAllProducts();
+
+                if (c != null && c.moveToFirst()){
+                    do {
+                        // Passing values
+                        String column1 = c.getString(0);
+                        String column2 = c.getString(1);
+                        String column3 = c.getString(2);
+                        String column4 = c.getString(3);
+                        // Do something Here with values
+//                Log.d("DB_DEBUG_SEARCH", "col1: " + column1 + ", col2:" +
+//                        column2 + ", col3:" + column3 + ", col4:" + column4);
+                        ProductModel data = new ProductModel(Integer.parseInt(column1), column2,column3,Double.parseDouble(column4));
+                        productDataArrayList.add(data);
+                    } while(c.moveToNext());
+                }
+                filterList(productDataArrayList);
             }
         });
     }
@@ -75,7 +92,7 @@ public class ProductRecycleviewAdapter extends RecyclerView.Adapter<ProductRecyc
     public int getItemCount() {
         // this method returns
         // the size of recyclerview
-        return courseDataArrayList.size();
+        return productDataArrayList.size();
     }
 
     // View Holder Class to handle Recycler View.
@@ -95,7 +112,7 @@ public class ProductRecycleviewAdapter extends RecyclerView.Adapter<ProductRecyc
         }
     }
     public void filterList(ArrayList<ProductModel> filteredList) {
-        courseDataArrayList = filteredList;
+        productDataArrayList = filteredList;
         notifyDataSetChanged();
     }
 }
